@@ -2,6 +2,9 @@ streamlit
 pypdf2
 langchain
 langchain-google-genai
+langchain-core
+langchain-community
+langchain-classic
+langchain-text-splitters
 faiss-cpu
-python-dotenv
 google-genai
