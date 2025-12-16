@@ -21,9 +21,8 @@ def get_pdf_text(pdf_docs):
 
 def get_text_chunks(text):
     """Splits the raw text into smaller chunks."""
-    # Note: 10000 chunk size is very large and might exceed token limits for context window.
-    # Consider reducing for better performance, e.g., to 1000 or 4000.
-    text_splitter = RecursiveCharacterTextSplitter(chunk_size=10000, chunk_overlap=1000)
+
+    text_splitter = RecursiveCharacterTextSplitter(chunk_size=1500, chunk_overlap=200)
     chunks = text_splitter.split_text(text)
     return chunks
 
@@ -76,8 +75,6 @@ def user_input(user_question, api_key):
     response = chain(
         {"input_documents":docs, "question": user_question}
         , return_only_outputs=True)
-
-    # st.write("Raw response for debugging: ", response) # Debugging print removed
     st.write("Reply: ", response["output_text"])
 
 
@@ -153,5 +150,6 @@ def main():
 if __name__ == "__main__":
 
     main()
+
 
 
