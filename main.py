@@ -107,7 +107,6 @@ def main():
         if api_key_input:
             st.session_state.gemini_api_key = api_key_input
             os.environ["GEMINI_API_KEY"] = api_key_input # Set env variable temporarily
-            genai.configure(api_key=api_key_input)
             st.success("API Key stored.")
         else:
             st.warning("Please enter your Gemini API Key.")
@@ -154,4 +153,5 @@ def main():
 if __name__ == "__main__":
 
     main()
+
 
